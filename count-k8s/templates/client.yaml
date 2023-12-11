@@ -3,17 +3,22 @@ kind: Deployment
 metadata:
   name: count-client
   labels:
-    app: count-client
+    app: {{ .Values.client.hostname }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: count-client
+      app: {{ .Values.client.hostname }}
   template:
     metadata:
       labels:
-        app: count-client
+        app: {{ .Values.client.hostname }}
     spec:
       containers:
-        - name: count-client
+        - name: {{ .Values.client.hostname }}
           image: "{{ .Values.client.image }}"
+          env:
+          - name: PORT
+            value: "{{ .Values.server.port }}"
+          - name: HOST
+            value: "{{ .Values.server.hostname }}"

@@ -2,8 +2,9 @@ replicaCount: 1
 
 server:
   image: ahmadibraspectrocloud/count-server:latest
-  hostname: count-server
-  port: 8080
+  hostname: count-grpc-server
+  port: 3005
 
 client:
   image: ahmadibraspectrocloud/count-client:latest
+  hostname: count-grpc-client

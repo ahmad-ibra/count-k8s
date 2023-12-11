@@ -3,31 +3,34 @@ kind: Deployment
 metadata:
   name: count-server
   labels:
-    app: count-server
+    app: {{ .Values.server.hostname }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: count-server
+      app: {{ .Values.server.hostname }}
   template:
     metadata:
       labels:
-        app: count-server
+        app: {{ .Values.server.hostname }}
     spec:
       containers:
-        - name: count-server
+        - name: {{ .Values.server.hostname }}
           image: "{{ .Values.server.image }}"
           ports:
             - name: http
               containerPort: {{ .Values.server.port }}
+          env:
+          - name: PORT
+            value: "{{ .Values.server.port }}"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: count-server
+  name: {{ .Values.server.hostname }}
 spec:
   selector:
-    app: count-server
+    app: {{ .Values.server.hostname }}
   ports:
     - port: {{ .Values.server.port }}
       targetPort: {{ .Values.server.port }}
