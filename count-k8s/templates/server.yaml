@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: count-server
+  labels:
+    app: count-server
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: count-server
+  template:
+    metadata:
+      labels:
+        app: count-server
+    spec:
+      containers:
+        - name: count-server
+          image: "{{ .Values.server.image }}"
+          ports:
+            - name: http
+              containerPort: {{ .Values.server.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: count-server
+spec:
+  selector:
+    app: count-server
+  ports:
+    - port: {{ .Values.server.port }}
+      targetPort: {{ .Values.server.port }}
+      protocol: TCP

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: count-client
+  labels:
+    app: count-client
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: count-client
+  template:
+    metadata:
+      labels:
+        app: count-client
+    spec:
+      containers:
+        - name: count-client
+          image: "{{ .Values.client.image }}"

@@ -1,0 +1,9 @@
+replicaCount: 1
+
+server:
+  image: ahmadibraspectrocloud/count-server:latest
+  hostname: count-server
+  port: 8080
+
+client:
+  image: ahmadibraspectrocloud/count-client:latest
