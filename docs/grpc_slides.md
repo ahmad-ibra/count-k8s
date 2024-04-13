@@ -5,6 +5,7 @@ A quick tour of how to easily utilize gRPC in your Go projects
 - Intro to gRPC and Protobufs
 - gRPC & Protobufs vs REST & JSON
 - When to use gRPC and REST
+- Protobuf Serialization
 - Considerations When Using gRPC
 - A tour of Buf
 - Demo
@@ -75,7 +76,12 @@ req := &pb.PersonRequest{
 res, err = client.AddPerson(req)
 ```
 - Serialized into a compact payload with only 33 bytes compared to the 95 bytes required for JSON
-- View serialization breakdown by running `imgcat assets/protobuf-serialization.png`
+
+---
+
+## Protobuf Serialization
+
+![protobuf-serialization](./assets/protobuf-serialization.png)
 
 ---
 
