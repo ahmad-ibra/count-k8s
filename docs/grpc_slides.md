@@ -4,10 +4,8 @@ A quick tour of how to easily utilize gRPC in your Go projects
 ## Agenda
 - Intro to gRPC and Protobufs
 - gRPC & Protobufs vs REST & JSON
-- When to use gRPC and REST
-- Protobuf Serialization
 - Considerations When Using gRPC
-- A tour of Buf
+- A quick tour of Buf - a protobuf platform
 - Demo
 - Buf at Spectro Cloud
 
@@ -174,6 +172,7 @@ Buf provides tooling that makes gRPC a lot easier to work with, including the Bu
 
 
 ## Demo
+### Proto Definition Update Workflow With Buf
 - Run a gRPC server and client, explore the existing API
     - Client sends a request in a loop the the server
 - Modify the `.proto` definitions
@@ -199,4 +198,9 @@ validator is using spectro-cleanup to clean up our validator-plugins. It makes a
 
 ---
 
-## Thanks for listening, any questions?
+## Thanks for listening
+- https://protobuf.dev/programming-guides/proto3/
+- https://buf.build/docs/bsr/introduction
+- https://buf.build/docs/ecosystem/cli-overview
+
+## Any Questions?
