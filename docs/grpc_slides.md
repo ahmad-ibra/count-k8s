@@ -135,7 +135,7 @@ All fields in the `.proto` file are implicitly `optional`. We can annotate them 
 ## Considerations When Using gRPC
 
 ### Schema Maintenance and Versioning
-Something that needs to be decided on when using gRPC in your projects is _where_ the source of truth to your .proto definitions will actually be
+Something that needs to be decided on when using gRPC in your projects is where the source of truth to your .proto definitions will actually be
 
 1. Monorepo
 - Really good choice if you intentionally make that decision upfront
@@ -144,12 +144,12 @@ Something that needs to be decided on when using gRPC in your projects is _where
 
 2. Dedicated schema repository
 - Allows for a centralized location for all your schema management
-- A schema update would require at least (2 + _n_) PRs where _n_ is the number of client repositories
+- A schema update would require at least (2 + n) PRs where n is the number of client repositories
 
 3. A schema registry like Buf
 - Makes it easier to document your `.proto` definitions
 - Allows for easy schema versioning
-- A schema update would require at least (1 + _n_) PRs where _n_ is the number of client repositories
+- A schema update would require at least (1 + n) PRs where n is the number of client repositories
 
 ---
 
@@ -198,5 +198,4 @@ validator is using spectro-cleanup to clean up our validator-plugins. It makes a
 
 ---
 
-## Thank you for coming to my TED talk!
-## Questions?
+## Thanks for listening, any questions?
