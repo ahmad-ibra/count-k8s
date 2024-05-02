@@ -6,8 +6,8 @@ A quick tour of how to easily utilize gRPC in your Go projects
 - gRPC & Protobufs vs REST & JSON
 - Considerations When Using gRPC
 - A quick tour of Buf - a protobuf platform
-- Demo
 - Buf at Spectro Cloud
+- Demo
 
 Feel free to chime in with comments or questions at any time during the presentation
 
@@ -167,9 +167,17 @@ Buf provides tooling that makes gRPC a lot easier to work with, including the Bu
 
 [buf.build](https://buf.build/)
 
-
 ---
 
+## Buf at Spectro Cloud
+spectro-cleanup is a generic cleanup utility for removing arbitrary files from nodes and/or resources from a K8s cluster.
+- Currently we're using the Buf Schema Registry to host `.proto` definitions for spectro-cleanup. 
+- https://github.com/spectrocloud-labs/spectro-cleanup/blob/main/proto/cleanup/v1/cleanup.proto
+
+validator is using spectro-cleanup to clean up our validator-plugins. It makes a gRPC request to spectro-cleanup notifying it that its ready to have everything removed.
+- https://github.com/spectrocloud-labs/validator/blob/cdb6424ce504ce1bdb347f92f8cc0b453f857096/internal/controller/validatorconfig_controller.go#L397
+
+---
 
 ## Demo
 ### Proto Definition Update Workflow With Buf
@@ -185,16 +193,6 @@ Code can be found in the following repos
 - [count-server](https://github.com/ahmad-ibra/count-server)
 - [count-client](https://github.com/ahmad-ibra/count-client)
 - [count-k8s](https://github.com/ahmad-ibra/count-k8s)
-
----
-
-## Buf at Spectro Cloud
-spectro-cleanup is a generic cleanup utility for removing arbitrary files from nodes and/or resources from a K8s cluster.
-- Currently we're using the Buf Schema Registry to host `.proto` definitions for spectro-cleanup. 
-- https://github.com/spectrocloud-labs/spectro-cleanup/blob/main/proto/cleanup/v1/cleanup.proto
-
-validator is using spectro-cleanup to clean up our validator-plugins. It makes a gRPC request to spectro-cleanup notifying it that its ready to have everything removed.
-- https://github.com/spectrocloud-labs/validator/blob/cdb6424ce504ce1bdb347f92f8cc0b453f857096/internal/controller/validatorconfig_controller.go#L397
 
 ---
 
