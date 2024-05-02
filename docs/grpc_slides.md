@@ -175,6 +175,7 @@ Buf provides tooling that makes gRPC a lot easier to work with, including the Bu
 
 ## Demo
 - Run a gRPC server and client, explore the existing API
+    - Client sends a request in a loop the the server
 - Modify the `.proto` definitions
 - Push the new schema up to the Buf Schema Registry
 - Update the server and clients to support the new schema
